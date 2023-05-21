@@ -1,0 +1,28 @@
+<div class="container">
+  <button class="btn btn-primary" [routerLink]="['/agregar']">Agregar</button>
+  <table class="table">
+    <caption>Tabla de tareas</caption>
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Tarea</th>
+        <th scope="col">Estado finalizado</th>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tarea of lista">
+        <td>{{tarea.id}}</td>
+        <td>{{tarea.tarea}}</td>
+        <td>{{tarea.finalizado}}</td>
+        <td>
+          <button class="btn btn-danger m-1" (click)="eliminar(tarea.id)">eliminar</button>
+          <button class="btn btn-warning" [routerLink]="['/editar/', tarea.id]"
+            routerLinkActive="router-link-active">modificar</button>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
